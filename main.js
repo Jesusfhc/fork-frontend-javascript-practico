@@ -26,7 +26,7 @@ hamburguerMenu.addEventListener("click", () => {
 })
 
 let shoppingCar = document.querySelector(".navbar-shopping-cart");
-let carASide = document.querySelector(".product-detail");
+let carASide = document.querySelector("#shopping-card");
 
 shoppingCar.addEventListener("click", () => {
     isDesktopMenuClose = desktopMenu.classList.contains('inactive');
