@@ -170,6 +170,7 @@ aside {
   box-sizing: border-box;
   position: absolute;
   right: 0;
+  transition: background-color 1s ease;
 }
 .title-container {
   display: flex;
