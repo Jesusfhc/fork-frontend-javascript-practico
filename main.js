@@ -17,9 +17,12 @@ let mobileMenu = document.querySelector(".mobile-menu");
 
 hamburguerMenu.addEventListener("click", () => {
     isCarShopClose = carASide.classList.contains('inactive');
+    isProductDetailClose = productDetailContainer.classList.contains('inactive');
 
     if (isCarShopClose === false) {
         carASide.classList.add('inactive');
+    } else if (isProductDetailClose === false){
+        productDetailContainer.classList.add('inactive');
     }
 
     mobileMenu.classList.toggle('inactive');
@@ -27,15 +30,19 @@ hamburguerMenu.addEventListener("click", () => {
 
 let shoppingCar = document.querySelector(".navbar-shopping-cart");
 let carASide = document.querySelector("#shopping-card");
+let productDetailContainer = document.querySelector('#product-detail');
 
 shoppingCar.addEventListener("click", () => {
     isDesktopMenuClose = desktopMenu.classList.contains('inactive');
     isMobileMenuClose = mobileMenu.classList.contains('inactive');
+    isProductDetailClose = productDetailContainer.classList.contains('inactive');
 
     if (isDesktopMenuClose === false) {
         desktopMenu.classList.add('inactive');
     } else if (isMobileMenuClose === false) {
         mobileMenu.classList.add('inactive');
+    } else if (isProductDetailClose === false){
+        productDetailContainer.classList.add('inactive');
     }
 
     carASide.classList.toggle('inactive');
@@ -79,6 +86,23 @@ for (product of productArray) {
     `;
     container.classList.add('product-card');
 
+    container.addEventListener('click', () => {
+        let productAside = document.querySelector("#product-detail");
+        productAside.classList.remove('inactive');
+
+        isCarShopClose = carASide.classList.contains('inactive');
+        if (isCarShopClose === false) {
+            carASide.classList.add('inactive');
+        }
+        
+    })
+
     cardsContainer.appendChild(container);
 
 }
+
+let closeAsideButton = document.querySelector('.product-detail-close');
+closeAsideButton.addEventListener('click', () => {
+    let productAside = document.querySelector("#product-detail");
+    productAside.classList.add('inactive');
+})
